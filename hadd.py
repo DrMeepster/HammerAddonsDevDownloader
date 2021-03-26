@@ -44,6 +44,12 @@ def setup_repo(git, branch, path: Path, name, skip, cap, reset):
         shutil.rmtree(path, onerror=rmtree_git_onerror)
 
     if not name in skip:
+        try:
+            subprocess.run("git", capture_output=True)
+        except FileNotFoundError:
+            print("Error: Git is not installed or not on the path")
+            sys.exit(-1)
+
         capture_output = name in cap
 
         path.mkdir(parents=True, exist_ok=True)
