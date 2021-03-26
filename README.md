@@ -9,3 +9,4 @@ This script is made in Python 3.9. Earlier versions of Python 3 may work, but th
 Dependencies:
  * Git
  * Python 3.9
+ * A c/c++ compiler

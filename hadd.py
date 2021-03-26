@@ -285,7 +285,7 @@ def main():
             shutil.rmtree(build_dir)
 
     if not "final" in skip:
-        if os.listdir(build_dir) and not result.noconfirm:
+        if build_dir.exists() and os.listdir(build_dir) and not result.noconfirm:
             if input(f"Build dir not empty. Delete it? (y/n) ").startswith("y".casefold()):
                 print("(Use --noconfirm to skip this prompt)")
             else:
